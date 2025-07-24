@@ -27,17 +27,20 @@ const StatsSection: React.FC<StatsSectionProps> = ({
 }) => {
   return (
     <div
-      className={`mt-20 ${backgroundColor} rounded-2xl p-8 md:p-12 ${className}`}
+      className={`mt-20 ${backgroundColor}/50 rounded-2xl p-8 md:p-8 ${className} bg-[url('/top-view-using-laptop-overlay.webp')] bg-blend-multiply bg-center`}
+      data-aos="fade-up"
     >
       {(title || description) && (
         <div className="text-center mb-8">
           {title && (
-            <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${textColor}`}>
+            <h3 className={`text-2xl md:text-3xl font-bold mb-1 ${textColor}`}>
               {title}
             </h3>
           )}
           {description && (
-            <p className={`text-lg opacity-90 ${textColor}`}>{description}</p>
+            <p className={`text-md opacity-90 max-w-2xl mx-auto ${textColor}`}>
+              {description}
+            </p>
           )}
         </div>
       )}
@@ -56,7 +59,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({
             prefix={stat.prefix || ""}
             label={stat.label}
             className={textColor}
-            labelClassName={textColor}
+            labelClassName={"text-yellow-400"}
             duration={2000 + index * 200} // Stagger animation
           />
         ))}

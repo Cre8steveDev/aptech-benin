@@ -1,29 +1,39 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/Card";
 import StatsSection from "@/components/ui/StatsSection";
 import { Book, People, TickCircle, CloudLightning } from "iconsax-reactjs";
 
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+
 const features = [
   {
     icon: <Book size={28} color="#155dfc" variant="Outline" />,
-    title: "Industry-Relevant Curriculum",
+    delay: "0",
+    title: "Modern Curriculum",
     description:
       "Our courses are designed with input from industry professionals to ensure you learn the most current and in-demand skills.",
   },
   {
     icon: <People size={28} color="#155dfc" variant="Outline" />,
+    delay: "50",
     title: "Expert Instructors",
     description:
       "Learn from experienced professionals with years of industry experience and a passion for teaching.",
   },
   {
     icon: <CloudLightning size={28} color="#155dfc" variant="Outline" />,
+    delay: "100",
     title: "Hands-On Learning",
     description:
       "Get practical experience through projects, labs, and real-world applications that prepare you for the workplace.",
   },
   {
     icon: <TickCircle size={28} color="#155dfc" variant="Outline" />,
+    delay: "150",
     title: "Industry Certifications",
     description:
       "Earn recognized certifications that validate your skills and enhance your credibility with employers.",
@@ -33,47 +43,65 @@ const features = [
 // Featured Section Component
 const FeaturesSection = () => {
   const statsData = [
-    { value: 500, label: "Graduates", suffix: "+" },
-    { value: 15, label: "Courses", suffix: "+" },
-    { value: 95, label: "Job Placement", suffix: "%" },
-    { value: 10, label: "Years Experience", suffix: "+" },
+    { value: 7, label: "Graduates Globally", suffix: "m+" },
+    { value: 15, label: "Professional Courses", suffix: "+" },
+    { value: 35, label: "Yearse of Expertise", suffix: "+" },
+    { value: 40, label: "Countries", suffix: "+" },
   ];
 
+  // Initialize animate on scroll library
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <section className="py-14 bg-white dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white dark:bg-gray-800 py-14">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-4xl font-bold text-gray-800 dark:text-white mb-2">
-            Why Choose Aptech Benin?
+        <div className="mb-8 text-center">
+          <h2
+            className="mb-2 font-bold text-gray-800 dark:text-white text-4xl md:text-4xl"
+            data-aos="fade-up"
+          >
+            APTECH is a Global Learning Solutions Provider
           </h2>
-          <p className="text-md text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We're committed to providing world-class computer education that
-            prepares you for success in the rapidly evolving tech industry.
+          <p
+            className="mx-auto max-w-3xl text-gray-600 text-md dark:text-gray-300"
+            data-aos="fade-up"
+          >
+            Are you considering a new career path or you are looking at adding a
+            skill? Let's help you in your decision making and give options on
+            how to reboot your career journey for success. We're committed to
+            providing world-class computer education that prepares you for
+            success in the rapidly evolving tech industry.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
-            <Card key={index} hover className="text-center">
-              <CardContent className="p-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full mb-6">
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-sm dark:text-gray-300 leading-relaxed">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
+            <div data-aos="fade-up" key={index} data-aos-delay={feature.delay}>
+              <Card hover className="text-center">
+                <CardContent className="p-8">
+                  <div className="inline-flex justify-center items-center bg-blue-100 dark:bg-blue-900 mb-6 rounded-full w-16 h-16 text-blue-600 dark:text-blue-400">
+                    {feature.icon}
+                  </div>
+                  <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-lg">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
 
         {/* Stats Section */}
         <StatsSection
+          title="Why Choose Aptech Benin?"
+          description="Aptech has alliance with the best international Universities and institutes across the globe to benefit Aptech students."
           stats={statsData}
           backgroundColor="bg-red-800 dark:bg-red-900"
           textColor="text-white"
