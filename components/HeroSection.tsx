@@ -5,36 +5,36 @@ import Button from "@/components/ui/Button";
 
 const HeroSection = () => {
   return (
-    <section className=" text-white overflow-hidden bg-black h-[90dvh] lg:min-h-[700px] max-w-[1200px] md:mx-auto md:my-8 md:rounded-4xl md:shadow-2xl relative py-0">
+    <section className="relative bg-black md:shadow-2xl md:mx-auto md:my-8 py-0 md:rounded-4xl max-w-[1200px] h-[90dvh] lg:min-h-[700px] overflow-hidden text-white">
       <video
         src="/hero-video.mp4"
-        className="w-full h-full absolute top-0 left-0"
+        className="top-0 left-0 absolute w-full h-full"
         muted
         loop
         autoPlay
       ></video>
-      <section className="relative w-full h-full bg-black/50 px-8">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+      <section className="relative bg-black/50 px-8 w-full h-full">
+        <div className="relative mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 max-w-7xl">
+          <div className="items-center gap-4 grid grid-cols-1 lg:grid-cols-2">
             {/* Content */}
             <div className="space-y-8">
               <div className="space-y-5">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-none">
+                <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl leading-none">
                   Build Your
                   <span className="text-yellow-400"> Tech Career </span>
                   With Our Professional I.T. Courses.
                 </h1>
-                <p className="text-md md:text-lg text-white leading-relaxed">
+                <p className="text-md text-white md:text-lg leading-relaxed">
                   Aptech Benin ensures the quality of its training programs
                   through a standardized curriculum that is regularly updated to
                   reflect industry trends and technological advancements.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex sm:flex-row flex-col gap-4">
                 <Button
                   size="lg"
-                  className="hover:bg-yellow-500 bg-red-700 hover:text-white text-gray-900 font-semibold animate"
+                  className="bg-red-700 hover:bg-yellow-500 font-semibold text-gray-900 hover:text-white animate"
                 >
                   <Link href="/courses" className="flex items-center">
                     Explore Courses
@@ -42,7 +42,7 @@ const HeroSection = () => {
                 </Button>
                 <Button
                   size="lg"
-                  className="border-white border-2 text-white bg-transparent hover:bg-white hover:text-blue-700"
+                  className="bg-transparent hover:bg-white border-2 border-white text-white hover:text-blue-700"
                 >
                   <Link href="/admissions">Apply Now</Link>
                 </Button>
@@ -51,13 +51,13 @@ const HeroSection = () => {
 
             {/* Image */}
             <div className="relative">
-              <div className="relative z-10">
+              <div className="z-10 relative">
                 <img
-                  src="/graduate-hero-img.webp"
+                  src="/graduate-hero-img-new.png"
                   alt="Aptech Computer Education"
                   width={600}
                   height={400}
-                  className="w-full h-full max-w-md mx-auto"
+                  className="mx-auto w-full max-w-md h-full"
                 />
               </div>
             </div>

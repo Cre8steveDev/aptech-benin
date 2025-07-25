@@ -4,6 +4,9 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
+// Animate on Scroll CSS
+import "aos/dist/aos.css";
+
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
 });

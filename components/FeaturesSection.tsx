@@ -6,8 +6,6 @@ import StatsSection from "@/components/ui/StatsSection";
 import { Book, People, TickCircle, CloudLightning } from "iconsax-reactjs";
 
 import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
-// ..
 
 const features = [
   {

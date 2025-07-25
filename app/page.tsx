@@ -2,9 +2,9 @@ import React from "react";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import CoursesSection from "@/components/CoursesSection";
-import CTASection from "@/components/CTASection";
 
-
+import UKBanner from "@/components/UKBanner";
+import TestimonialSection from "@/components/TestimonialSection";
 
 export default function Home() {
   return (
@@ -12,7 +12,8 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <CoursesSection />
-      <CTASection />
+      <TestimonialSection />
+      <UKBanner />
     </div>
   );
 }

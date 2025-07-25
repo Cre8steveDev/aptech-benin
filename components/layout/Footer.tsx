@@ -1,12 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Call, Location, Messages1 } from "iconsax-reactjs";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -15,11 +16,13 @@ const Footer = () => {
                 alt="Aptech Computer Education"
                 width={32}
                 height={32}
-                className="h-8 w-auto"
+                className="w-auto h-8"
               />
               <div>
-                <span className="text-lg font-bold text-blue-400">Aptech</span>
-                <span className="text-sm text-gray-300 block leading-tight">
+                <span className="font-bold text-yellow-500 text-lg">
+                  Aptech
+                </span>
+                <span className="block text-yellow-500 text-sm leading-tight">
                   Computer Education
                 </span>
               </div>
@@ -36,7 +39,7 @@ const Footer = () => {
                 aria-label="Facebook"
               >
                 <svg
-                  className="h-5 w-5"
+                  className="w-5 h-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -49,7 +52,7 @@ const Footer = () => {
                 aria-label="Twitter"
               >
                 <svg
-                  className="h-5 w-5"
+                  className="w-5 h-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -62,7 +65,7 @@ const Footer = () => {
                 aria-label="LinkedIn"
               >
                 <svg
-                  className="h-5 w-5"
+                  className="w-5 h-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -74,12 +77,12 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="mb-4 font-semibold text-lg">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/about-us"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   About Us
                 </Link>
@@ -87,7 +90,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/courses"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Our Courses
                 </Link>
@@ -95,7 +98,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/admissions"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Admissions
                 </Link>
@@ -103,7 +106,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Contact Us
                 </Link>
@@ -111,7 +114,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/careers"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Careers
                 </Link>
@@ -121,36 +124,39 @@ const Footer = () => {
 
           {/* Courses */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Popular Courses</h3>
+            <h3 className="mb-4 font-semibold text-lg">Popular Courses</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/courses/web-development"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
-                >
-                  Web Development
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/courses/software-development"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Software Development
                 </Link>
               </li>
+
+              <li>
+                <Link
+                  href="/courses/web-development"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
+                >
+                  Web Development
+                </Link>
+              </li>
+
               <li>
                 <Link
                   href="/courses/digital-marketing"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Digital Marketing
                 </Link>
               </li>
+
               <li>
                 <Link
                   href="/courses/networking"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Networking
                 </Link>
@@ -158,7 +164,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/courses/graphics-design"
-                  className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
                   Graphics Design
                 </Link>
@@ -168,30 +174,12 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <h3 className="mb-4 font-semibold text-lg">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <svg
-                  className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
+                <Location color="white" size={24} />
                 <p className="text-gray-300 text-sm">
-                  123 Computer Street,
+                  Austin's Plaza 99B First East Circular,
                   <br />
                   Benin City, Edo State,
                   <br />
@@ -199,60 +187,35 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex items-center space-x-3">
-                <svg
-                  className="h-5 w-5 text-blue-400 flex-shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-                <p className="text-gray-300 text-sm">+234 (0) 123 456 7890</p>
+                <Call color="white" size={24} />
+                <p className="text-gray-300 text-sm">
+                  <a href="tel:+234808621315" target="_blank">
+                    +234-808-621-3157
+                  </a>
+                  <br />
+                  <a href="tel:+2347077388482" target="_blank">
+                    +234-707-738-8482
+                  </a>
+                </p>
               </div>
               <div className="flex items-center space-x-3">
-                <svg
-                  className="h-5 w-5 text-blue-400 flex-shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                <p className="text-gray-300 text-sm">info@aptech-benin.com</p>
+                <Messages1 color="white" size={24} />
+                <a href="mailto:aptech.benin@gmail.com">
+                  <p className="text-gray-300 text-sm">
+                    aptech.benin@gmail.com
+                  </p>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2025 Aptech Computer Education. All rights reserved.
+        <div className="flex md:flex-row flex-col justify-center items-center mt-8 pt-8 border-gray-800 border-t">
+          <p className="text-gray-400 text-sm text-center">
+            © {new Date().getFullYear()} Aptech Computer Education. All rights
+            reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link
-              href="/privacy-policy"
-              className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

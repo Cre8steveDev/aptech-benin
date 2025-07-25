@@ -4,19 +4,24 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
+  data_attrib?: string;
 }
 
 const Card: React.FC<CardProps> = ({
   children,
   className = "",
   hover = false,
+  data_attrib,
 }) => {
   const baseClasses =
     "bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 transition-all duration-200";
   const hoverClasses = hover ? "hover:shadow-lg hover:scale-105" : "";
 
   return (
-    <div className={`${baseClasses} ${hoverClasses} ${className}`}>
+    <div
+      className={`${baseClasses} ${hoverClasses} ${className}`}
+      data-aos={data_attrib}
+    >
       {children}
     </div>
   );

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Link from "next/link";
 import {
   Card,
@@ -8,125 +10,23 @@ import {
 } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import {
+  Avalanche,
   ChartSquare,
-  Check,
   CodeCircle,
-  Diagram,
+  ShoppingCart,
   TickCircle,
+  WifiSquare,
 } from "iconsax-reactjs";
 
+// Import Animate on Scroll Class
 import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
-
-const courses = [
-  {
-    id: 1,
-    title: "Advanced Diploma in Software Engineering",
-    description:
-      "Master programming fundamentals and advanced concepts with Python, Java, Database and AI. Build desktop and mobile applications.",
-    duration: "2 years",
-
-    features: [
-      "Python Programming",
-      "Java Development",
-      "Mobile App Dev",
-      "Software Architecture",
-      "Study Abroad Opportunity",
-    ],
-    icon: <CodeCircle size="32" color="#ffffff" variant="Bold" />,
-    type: "Career Course",
-  },
-
-  {
-    id: 2,
-    title: "Data Science & Analytics",
-    description:
-      "Analyze data, create insights, and build predictive models using Python, SQL, and machine learning techniques.",
-    duration: "7 months",
-    level: "Intermediate to Advanced",
-
-    features: [
-      "Analysis with MS Excel",
-      "Python for Data Science",
-      "SQL & Databases",
-      "Machine Learning",
-      "Data Visualization",
-    ],
-    icon: <ChartSquare size="32" color="#ffffff" variant="Bold" />,
-    type: "Smart Pro",
-  },
-  {
-    id: 3,
-    title: "Responsive Web Design",
-    description:
-      "Learn modern web development with HTML, CSS, JavaScript, React. Design and build responsive, dynamic websites and web applications.",
-    duration: "4 months",
-    level: "Beginner to Advanced",
-
-    features: [
-      "HTML5 & CSS3",
-      "JavaScript & React",
-      "UI/UX for Web",
-      "Git & GitHub",
-    ],
-    icon: <CodeCircle size="32" color="#ffffff" variant="Bold" />,
-    type: "Skill Builder",
-  },
-
-  {
-    id: 4,
-    title: "Digital Marketing",
-    description:
-      "Learn digital marketing strategies, social media marketing, SEO, Google Ads, and content marketing to grow businesses online.",
-    duration: "4 months",
-    level: "Beginner to Intermediate",
-
-    features: [
-      "SEO & SEM",
-      "Social Media Marketing",
-      "Content Strategy",
-      "Analytics & ROI",
-    ],
-    icon: <></>,
-    type: "Skill Builder",
-  },
-  {
-    id: 5,
-    title: "Ethical Hacking",
-    description:
-      "Understand network infrastructure, security protocols, and cybersecurity best practices. Prepare for industry certifications.",
-    duration: "6 months",
-    level: "Intermediate to Advanced",
-
-    features: [
-      "Network Administration",
-      "Cybersecurity",
-      "Cloud Computing",
-      "Industry Certifications",
-    ],
-    icon: <></>,
-    type: "Career Course",
-  },
-  {
-    id: 6,
-    title: "Graphics Design",
-    description:
-      "Create stunning visual designs using Adobe Creative Suite. Learn typography, branding, and user interface design principles.",
-    duration: "4 months",
-    level: "Beginner to Intermediate",
-
-    features: [
-      "Adobe Photoshop",
-      "Illustrator & InDesign",
-      "UI/UX Design",
-      "Brand Identity",
-    ],
-    icon: <></>,
-    type: "Skill Builder",
-  },
-];
 
 const CoursesSection = () => {
+  // Initialize animate on scroll library
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900 py-20">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -144,7 +44,12 @@ const CoursesSection = () => {
         {/* Courses Grid */}
         <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
           {courses.map((course) => (
-            <Card key={course.id} hover className="flex flex-col h-full">
+            <Card
+              key={course.id}
+              hover
+              className="flex flex-col h-full"
+              data_attrib={"fade-up"}
+            >
               <CardHeader>
                 <div className="bg-yellow-400 mb-2 ml-auto px-4 py-1 rounded-xl w-fit text-[10px] text-black">
                   {course.type}
@@ -164,23 +69,6 @@ const CoursesSection = () => {
 
               <CardContent className="flex-1">
                 <div className="space-y-4">
-                  {/* <div className="flex justify-between items-center text-sm">
-                    <span className="text-gray-500 dark:text-gray-400">
-                      Duration:
-                    </span>
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      {course.duration}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-gray-500 dark:text-gray-400">
-                      Level:
-                    </span>
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      {course.level}
-                    </span>
-                  </div> */}
-
                   <div className="pt-4">
                     <h4 className="mb-2 font-medium text-gray-900 dark:text-white text-sm">
                       What you'll learn:
@@ -206,25 +94,32 @@ const CoursesSection = () => {
 
               <CardFooter>
                 <div className="flex space-x-2 w-full">
-                  <Button
-                    className="flex-1 bg-red-900 hover:bg-yellow-500 hover:text-black"
-                    size="sm"
+                  <Link
+                    href={`/courses/${course.title
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
+                    className="flex-1"
                   >
-                    <Link
-                      href={`/courses/${course.title
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}`}
+                    <Button
+                      className="bg-red-900 hover:bg-yellow-500 w-full hover:text-black"
+                      size="sm"
                     >
                       Learn More
-                    </Link>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="hover:bg-yellow-500 border-yellow-500 hover:border-transparent !text-black hover:text-white dark:!text-white"
+                    </Button>
+                  </Link>
+                  <Link
+                    href={`/admissions?course=${course.title
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
                   >
-                    <Link href="/admissions">Enroll Now</Link>
-                  </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="hover:bg-yellow-500 border-yellow-500 hover:border-transparent !text-black hover:text-white dark:!text-white"
+                    >
+                      Enroll Now
+                    </Button>
+                  </Link>
                 </div>
               </CardFooter>
             </Card>
@@ -233,22 +128,13 @@ const CoursesSection = () => {
 
         {/* View All Courses Button */}
         <div className="text-center">
-          <Button size="lg" variant="outline">
+          <Button
+            size="sm"
+            variant="outline"
+            className="hover:!bg-black !border-black !text-black dark:!border-white dark:!text-white hover:!text-white animate-pulse"
+          >
             <Link href="/courses" className="flex items-center">
               View All Courses
-              <svg
-                className="ml-2 w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
             </Link>
           </Button>
         </div>
@@ -258,3 +144,112 @@ const CoursesSection = () => {
 };
 
 export default CoursesSection;
+
+// DATA FOR RENDERING LIST
+const courses = [
+  {
+    id: 1,
+    title: "Advanced Diploma in Software Engineering",
+    description:
+      "Master programming fundamentals and advanced concepts with Python, Java, Database and AI. Build desktop and mobile applications.",
+    duration: "2 years",
+
+    features: [
+      "Python Programming",
+      "Java Development",
+      "Mobile App Dev",
+      "Software Architecture",
+      "Study Abroad Opportunity",
+    ],
+    icon: <CodeCircle size="24" color="#ffffff" variant="Bold" />,
+    type: "Career Course",
+  },
+  {
+    id: 2,
+    title: "Data Science & Analytics",
+    description:
+      "Analyze data, create insights, and build predictive models using Python, SQL, and machine learning techniques.",
+    duration: "7 months",
+    level: "Intermediate to Advanced",
+
+    features: [
+      "Data Analysis with MS Excel",
+      "Python for Data Science",
+      "SQL & Databases",
+      "Machine Learning",
+      "Data Visualization",
+    ],
+    icon: <ChartSquare size="24" color="#ffffff" variant="Bold" />,
+    type: "Smart Professional",
+  },
+
+  {
+    id: 3,
+    title: "Responsive Web Design",
+    description:
+      "Learn modern web development with HTML, CSS, JavaScript, React. Design and build responsive, dynamic websites and web applications.",
+    duration: "4 months",
+    level: "Beginner to Advanced",
+
+    features: [
+      "HTML5 & CSS3",
+      "JavaScript & React",
+      "UI/UX for Web",
+      "Git & GitHub",
+    ],
+    icon: <CodeCircle size="24" color="#ffffff" variant="Bold" />,
+    type: "Skill Builder",
+  },
+
+  {
+    id: 4,
+    title: "Digital Marketing",
+    description:
+      "Learn digital marketing strategies, social media marketing, SEO, Google Ads, and content marketing to grow businesses online.",
+    duration: "4 months",
+    level: "Beginner to Intermediate",
+
+    features: [
+      "SEO & SEM",
+      "Social Media Marketing",
+      "Content Strategy",
+      "Analytics & ROI",
+    ],
+    icon: <ShoppingCart size="24" color="#ffffff" />,
+    type: "Skill Builder",
+  },
+  {
+    id: 5,
+    title: "Ethical Hacking",
+    description:
+      "Understand network infrastructure, security protocols, and cybersecurity best practices. Prepare for industry certifications.",
+    duration: "6 months",
+    level: "Intermediate to Advanced",
+
+    features: [
+      "Network Administration",
+      "Cybersecurity",
+      "Cloud Computing",
+      "Industry Certifications",
+    ],
+    icon: <WifiSquare size="24" color="#ffffff" />,
+    type: "Smart Professional",
+  },
+  {
+    id: 6,
+    title: "Graphics Design",
+    description:
+      "Create stunning visual designs using Adobe Creative Suite. Learn typography, branding, and user interface design principles.",
+    duration: "4 months",
+    level: "Beginner to Intermediate",
+
+    features: [
+      "Adobe Photoshop",
+      "Illustrator & InDesign",
+      "UI/UX Design",
+      "Brand Identity",
+    ],
+    icon: <Avalanche size="24" color="#ffffff" />,
+    type: "Skill Builder",
+  },
+];
