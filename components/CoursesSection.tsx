@@ -155,18 +155,18 @@ const courses = [
     duration: "2 years",
 
     features: [
-      "Python Programming",
-      "Java Development",
-      "Mobile App Dev",
+      "Programming Principles",
+      "Full Stack Development",
+      "Databases and More",
       "Software Architecture",
-      "Study Abroad Opportunity",
+      "Study Abroad Pathway",
     ],
     icon: <CodeCircle size="24" color="#ffffff" variant="Bold" />,
     type: "Career Course",
   },
   {
     id: 2,
-    title: "Data Science & Analytics",
+    title: "Data Science and Analytics",
     description:
       "Analyze data, create insights, and build predictive models using Python, SQL, and machine learning techniques.",
     duration: "7 months",

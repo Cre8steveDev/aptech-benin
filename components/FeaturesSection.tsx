@@ -98,7 +98,7 @@ const FeaturesSection = () => {
 
         {/* Stats Section */}
         <StatsSection
-          title="Why Choose Aptech Benin?"
+          title="Why Choose Aptech?"
           description="Aptech has alliance with the best international Universities and institutes across the globe to benefit Aptech students."
           stats={statsData}
           backgroundColor="bg-red-800 dark:bg-red-900"
