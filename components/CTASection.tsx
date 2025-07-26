@@ -7,7 +7,7 @@ import { Whatsapp } from "iconsax-reactjs";
 
 const CTASection = () => {
   return (
-    <section className="flex flex-col justify-center items-center bg-[rgb(166,0,0)] p-12 h-full">
+    <section className="flex flex-col justify-center items-center bg-[rgb(166,0,0)] p-6  md:p-12 h-full">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
         <div className="space-y-8">
           {/* Main CTA */}

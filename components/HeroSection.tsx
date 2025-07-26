@@ -5,10 +5,10 @@ import Button from "@/components/ui/Button";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-black md:shadow-2xl md:mx-auto md:my-8 py-0 md:rounded-4xl max-w-[1200px] h-[90dvh] lg:min-h-[700px] overflow-hidden text-white">
+    <section className="relative bg-black md:shadow-2xl md:mx-auto md:my-8 py-0 md:rounded-4xl max-w-[1200px] h-fit md:h-[90dvh] lg:min-h-[700px] overflow-hidden text-white">
       <video
         src="/hero-video.mp4"
-        className="top-0 left-0 absolute w-full h-full"
+        className="top-0 left-0 absolute w-full h-full object-cover"
         muted
         loop
         autoPlay
@@ -19,12 +19,12 @@ const HeroSection = () => {
             {/* Content */}
             <div className="space-y-8">
               <div className="space-y-5">
-                <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl leading-none">
+                <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl md:text-left text-center leading-none">
                   Build Your
                   <span className="text-yellow-400"> Tech Career </span>
                   With Our Professional I.T. Courses.
                 </h1>
-                <p className="text-md text-white md:text-lg leading-relaxed">
+                <p className="text-md text-white md:text-lg md:leading-relaxed md:text-left text-center">
                   Aptech Benin ensures the quality of its training programs
                   through a standardized curriculum that is regularly updated to
                   reflect industry trends and technological advancements.
@@ -42,7 +42,7 @@ const HeroSection = () => {
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-transparent hover:bg-white border-2 border-white text-white hover:text-blue-700"
+                  className="bg-transparent hover:bg-white border-2 border-white text-white hover:text-gray-700"
                 >
                   <Link href="/admissions">Apply Now</Link>
                 </Button>
@@ -57,7 +57,7 @@ const HeroSection = () => {
                   alt="Aptech Computer Education"
                   width={600}
                   height={400}
-                  className="mx-auto w-full max-w-md h-full"
+                  className="mx-auto w-full max-w-md h-full -mb-20 sm:mb-0 lg:translate-y-6"
                 />
               </div>
             </div>

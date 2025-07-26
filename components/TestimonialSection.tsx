@@ -9,7 +9,7 @@ const TestimonialSection = () => {
   return (
     <section className="dark:bg-gray-900 md:px-20 py-8 text-gray-900 dark:text-slate-50">
       {/* Section Header */}
-      <h2 className="text-3xl text-center">
+      <h2 className="text-3xl text-center px-8 md:px-2">
         Testimonials from APTECH Students
       </h2>
 
@@ -59,7 +59,7 @@ const TestimonialSection = () => {
       </Carousel>
 
       {/* Collaboration Banner */}
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center px-4 md:px-0">
         <h3 className="z-10 mt-4">In Collaboration with</h3>
         <img
           src="/affiliations-aptech-benin-global-brand.webp"

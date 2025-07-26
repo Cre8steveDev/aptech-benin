@@ -58,13 +58,13 @@ const FeaturesSection = () => {
         {/* Section Header */}
         <div className="mb-8 text-center">
           <h2
-            className="mb-2 font-bold text-gray-800 dark:text-white text-4xl md:text-4xl"
+            className="mb-2 font-bold text-gray-800 dark:text-white text-2xl md:text-4xl"
             data-aos="fade-up"
           >
             APTECH is a Global Learning Solutions Provider
           </h2>
           <p
-            className="mx-auto max-w-3xl text-gray-600 text-md dark:text-gray-300"
+            className="mx-auto max-w-3xl text-gray-600 text-[14px] md:text-md dark:text-gray-300 px-6"
             data-aos="fade-up"
           >
             Are you considering a new career path or you are looking at adding a
