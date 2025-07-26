@@ -41,7 +41,6 @@ const AdmissionForm = () => {
     e.preventDefault();
 
     // Form State
-    console.log(formData);
     setLoading(true);
     setFormError(null);
 
