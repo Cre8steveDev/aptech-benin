@@ -335,7 +335,7 @@ const AdmissionForm = () => {
             <Button
               type="submit"
               size="md"
-              className="px-12 w-full md:w-auto cursor-pointer bg-red-800 hover:bg-red-950"
+              className="px-4 md:px-12 w-full md:w-auto cursor-pointer bg-red-800 hover:bg-red-950"
               disabled={loading}
             >
               {loading ? (
