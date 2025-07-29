@@ -131,7 +131,7 @@ const Footer = () => {
                   href="/courses/software-development"
                   className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
-                  Software Development
+                  ADSE (Software Engineering)
                 </Link>
               </li>
 
@@ -140,33 +140,25 @@ const Footer = () => {
                   href="/courses/web-development"
                   className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
-                  Web Development
+                  Responsive Web Development
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="/courses/digital-marketing"
+                  href="/courses/data-science"
                   className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
-                  Digital Marketing
+                  Data Science & Analytics
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="/courses/networking"
+                  href="/courses/certified-ethical-hacking"
                   className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
                 >
-                  Networking
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/courses/graphics-design"
-                  className="text-gray-300 hover:text-blue-400 text-sm transition-colors"
-                >
-                  Graphics Design
+                  Certified Ethical Hacking
                 </Link>
               </li>
             </ul>

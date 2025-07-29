@@ -1,8 +1,54 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+// Simple in-memory rate limiting (use Redis in production)
+// const rateLimitMap = new Map();
+
+// Rate limiting function
+// function rateLimit(ip: string, limit: number = 2, windowMs: number = 900000) {
+//   // 15 minutes, 2 applications max
+//   const now = Date.now();
+//   const windowStart = now - windowMs;
+
+//   if (!rateLimitMap.has(ip)) {
+//     rateLimitMap.set(ip, []);
+//   }
+
+//   const requests = rateLimitMap.get(ip);
+//   // Remove old requests outside the window
+//   const validRequests = requests.filter(
+//     (timestamp: number) => timestamp > windowStart
+//   );
+//   rateLimitMap.set(ip, validRequests);
+
+//   if (validRequests.length >= limit) {
+//     return false;
+//   }
+
+//   validRequests.push(now);
+//   rateLimitMap.set(ip, validRequests);
+//   return true;
+// }
+
 export async function POST(req: NextRequest) {
   try {
+    // Get client IP for rate limiting
+    const ip =
+      req.headers.get("x-forwarded-for") ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
+
+    // Apply rate limiting
+    // if (!rateLimit(ip)) {
+    //   return NextResponse.json(
+    //     {
+    //       error:
+    //         "Too many applications submitted. Please wait before submitting again.",
+    //     },
+    //     { status: 429 }
+    //   );
+    // }
+
     const {
       firstName,
       lastName,
@@ -10,7 +56,76 @@ export async function POST(req: NextRequest) {
       phoneNumber,
       courseChoice,
       educationalBackground,
+      honeypot,
+      timestamp,
+      timeSpent,
+      userAgent,
     } = await req.json();
+
+    // Bot protection: Check honeypot field
+    if (honeypot) {
+      return NextResponse.json(
+        { error: "Invalid submission detected." },
+        { status: 400 }
+      );
+    }
+
+    // Bot protection: Check time spent on form (minimum 5 seconds for applications)
+    if (timeSpent && timeSpent < 3000) {
+      return NextResponse.json(
+        {
+          error:
+            "Application submitted too quickly. Please review your information.",
+        },
+        { status: 400 }
+      );
+    }
+
+    // Bot protection: Check for suspicious user agents
+    const suspiciousUserAgents = [
+      /bot/i,
+      /crawler/i,
+      /spider/i,
+      /scraper/i,
+      /curl/i,
+      /wget/i,
+      /python/i,
+      /php/i,
+    ];
+
+    if (
+      userAgent &&
+      suspiciousUserAgents.some((pattern) => pattern.test(userAgent))
+    ) {
+      return NextResponse.json(
+        { error: "Automated applications are not allowed." },
+        { status: 403 }
+      );
+    }
+
+    // Bot protection: Content validation
+    const suspiciousPatterns = [
+      /\b(viagra|cialis|loan|casino|poker|binary|forex|crypto|bitcoin)\b/i,
+      /(https?:\/\/[^\s]+.*){2,}/, // Multiple URLs
+      /(.)\1{15,}/, // Many repeated characters
+      /<[^>]*>/, // HTML tags
+      /\b[A-Z]{10,}\b/, // Long uppercase words
+    ];
+
+    const fullText = `${firstName} ${lastName} ${email} ${educationalBackground}`;
+    const hasSuspiciousContent = suspiciousPatterns.some((pattern) =>
+      pattern.test(fullText)
+    );
+
+    if (hasSuspiciousContent) {
+      return NextResponse.json(
+        {
+          error:
+            "Application content validation failed. Please review your information.",
+        },
+        { status: 400 }
+      );
+    }
 
     if (
       !firstName ||
@@ -187,6 +302,11 @@ This is an automated message from the Aptech Computer Education [Benin] website.
 </body>
 </html>
 `;
+
+    // Log application submission for monitoring (remove sensitive data)
+    console.log(
+      `Application submission from IP: ${ip}, Email: ${email}, Course: ${courseChoice}, Time spent: ${timeSpent}ms`
+    );
 
     await transporter.sendMail({
       from: `Aptech Benin <${process.env.SMTP_FROM}>`,

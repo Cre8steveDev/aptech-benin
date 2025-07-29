@@ -6,6 +6,7 @@ import Button from "./ui/Button";
 import { Card, CardContent, CardHeader } from "./ui/Card";
 import { useSearchParams } from "next/navigation";
 import { TickCircle } from "iconsax-reactjs";
+import SimpleCaptcha from "./ui/SimpleCaptcha";
 
 const AdmissionForm = () => {
   const searchParam =
@@ -14,18 +15,28 @@ const AdmissionForm = () => {
   // Pick Course Choice Label from URL
   const courseChoice: { [key: string]: string } = {
     none: "Select a course",
-    data_science_and_analytics: "Data Science and Analytics",
     advanced_diploma_in_software_engineering:
       "Advanced Diploma in Software Engineering",
-    responsive_web_design: "Responsive Web Design",
-    digital_marketing: "Digital Marketing",
-    ethical_hacking: "Ethical Hacking",
+    aptech_computer_network_specialist: "Aptech Computer Network Specialist",
+    certified_ethical_hacking: "Certified Ethical Hacking",
+    data_science_and_analytics: "Data Science and Analytics",
+    web_application_with_python_smartpro:
+      "Web Application with Python (Smart Pro)",
+    ethical_hacking_smartpro: "Ethical Hacking (Smart Pro)",
+    responsive_web_development_stc: "Responsive Web Development (STC)",
+    html5_responsive_web_design_stc: "HTML5 Responsive Web Design (STC)",
+    advance_excel_2019_stc: "Advanced Microsoft Excel (STC)",
+    java_i_and_ii: "Java I & II (STC)",
+    digital_marketing_stc: "Digital Marketing (STC)",
+    graphics_design_stc: "Graphic Design (STC)",
+    need_help_to_decide: "Need Help to Decide",
   };
 
   // Setup form data
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState<null | string>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [startTime] = useState(Date.now()); // Track form load time
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -34,6 +45,7 @@ const AdmissionForm = () => {
     phoneNumber: "",
     courseChoice: courseChoice[searchParam],
     educationalBackground: "",
+    honeypot: "", // Bot trap field
   });
 
   // Handle Form Submission
@@ -44,13 +56,56 @@ const AdmissionForm = () => {
     setLoading(true);
     setFormError(null);
 
+    // Bot protection: Check honeypot field
+    if (formData.honeypot) {
+      setFormError("Invalid submission detected.");
+      setLoading(false);
+      return;
+    }
+
+    // Bot protection: Check minimum time spent on form (5 seconds for applications)
+    const timeSpent = Date.now() - startTime;
+    if (timeSpent < 3000) {
+      setFormError(
+        "Please take a moment to review your application before submitting."
+      );
+      setLoading(false);
+      return;
+    }
+
+    // Bot protection: Check for suspicious patterns in application
+    const suspiciousPatterns = [
+      /\b(viagra|cialis|loan|casino|poker|binary|forex|crypto|bitcoin)\b/i,
+      /(https?:\/\/[^\s]+.*){2,}/, // Multiple URLs
+      /(.)\1{10,}/, // Repeated characters
+      /<[^>]*>/, // HTML tags
+    ];
+
+    const fullText = `${formData.firstName} ${formData.lastName} ${formData.email} ${formData.educationalBackground}`;
+    const hasSuspiciousContent = suspiciousPatterns.some((pattern) =>
+      pattern.test(fullText)
+    );
+
+    if (hasSuspiciousContent) {
+      setFormError(
+        "Your application contains content that cannot be processed. Please review and try again."
+      );
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/send-application", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...formData }),
+        body: JSON.stringify({
+          ...formData,
+          timestamp: Date.now(),
+          timeSpent: timeSpent,
+          userAgent: navigator.userAgent,
+        }),
       });
 
       if (response.ok) {
@@ -64,6 +119,7 @@ const AdmissionForm = () => {
           phoneNumber: "",
           courseChoice: courseChoice.none,
           educationalBackground: "",
+          honeypot: "",
         });
       } else {
         // Handle error response
@@ -82,19 +138,22 @@ const AdmissionForm = () => {
   };
 
   // Reset form and go back to form view
-  const handleBackToForm = () => {
-    setIsSubmitted(false);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      courseChoice: courseChoice.none,
-      educationalBackground: "",
-    });
-    setFormError(null);
-    setLoading(false);
-  };
+  // const handleBackToForm = () => {
+  //   setIsSubmitted(false);
+  //   setFormData({
+  //     firstName: "",
+  //     lastName: "",
+  //     email: "",
+  //     phoneNumber: "",
+  //     courseChoice: courseChoice.none,
+  //     educationalBackground: "",
+  //     honeypot: "",
+  //   });
+  //   setFormError(null);
+  //   setLoading(false);
+  //   setCaptchaValid(false);
+  //   setCaptchaResetTrigger((prev) => prev + 1);
+  // };
 
   // Return Component Details
   if (isSubmitted) {
@@ -215,6 +274,22 @@ const AdmissionForm = () => {
           onSubmit={handleSubmit}
           id="form"
         >
+          {/* Honeypot field - Hidden from users, visible to bots */}
+          <div style={{ display: "none" }}>
+            <label htmlFor="honeypot">Leave this field empty</label>
+            <input
+              type="text"
+              name="honeypot"
+              id="honeypot"
+              value={formData.honeypot}
+              onChange={(e) =>
+                setFormData((fd) => ({ ...fd, honeypot: e.target.value }))
+              }
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
           <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
             <div>
               <label className="block sm:mb-2 font-medium text-gray-700 dark:text-gray-300 text-sm">
@@ -297,19 +372,56 @@ const AdmissionForm = () => {
               disabled={loading}
             >
               <option value="">{formData.courseChoice}</option>
-              <option value="responsive_web_design">
-                Responsive Web Design
-              </option>
+
               <option value="advanced_diploma_in_software_engineering">
                 Advanced Diploma in Software Engineering
               </option>
-              <option value="digital_marketing">Digital Marketing</option>
-              <option value="ethical_hacking">Ethical Hacking</option>
-              <option value="graphics_design">Graphics Design</option>
+
+              <option value="aptech_computer_network_specialist">
+                Aptech Computer Network Specialist
+              </option>
+
+              <option value="certified_ethical_hackingethical_hacking">
+                Certified Ethical Hacking
+              </option>
+
               <option value="data_science_and_analytics">
                 Data Science and Analytics
               </option>
+
+              <option value="web_application_with_python_smartpro">
+                Web Application with Python (Smart Pro)
+              </option>
+
+              <option value="ethical_hacking_smartpro">
+                Ethical Hacking (Smart Pro)
+              </option>
+
+              <option value="responsive_web_development_stc">
+                Responsive Web Development (STC)
+              </option>
+
+              <option value="html5_responsive_web_design_stc">
+                HTML5 Responsive Web Design (STC)
+              </option>
+
+              <option value="advance_excel_2019_stc">
+                Advanced Microsoft Excel (STC)
+              </option>
+
+              <option value="java_i_and_ii">Java I & II (STC)</option>
+
+              <option value="digital_marketing_stc">
+                Digital Marketing (STC)
+              </option>
+
+              <option value="graphics_design_stc">Graphic Design (STC)</option>
+
+              <option value="need_help_to_decide">Need Help to Decide</option>
             </select>
+            <p className="text-xs text-gray-900 dark:text-slate-100 mt-2">
+              STC - Short Term Courses
+            </p>
           </div>
 
           <div>
@@ -330,6 +442,12 @@ const AdmissionForm = () => {
               disabled={loading}
             />
           </div>
+
+          {/* Security Check */}
+          {/* <SimpleCaptcha
+            onVerify={setCaptchaValid}
+            resetTrigger={captchaResetTrigger}
+          /> */}
 
           <div className="text-center">
             <Button

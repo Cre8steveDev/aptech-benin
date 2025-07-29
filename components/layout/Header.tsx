@@ -95,7 +95,7 @@ const Header = () => {
                 />
               </Link>
 
-              <Link href={"#"} target="_blank">
+              <Link href={"https://wa.link/p1ko8b"} target="_blank">
                 <Whatsapp
                   size={28}
                   variant="Bold"

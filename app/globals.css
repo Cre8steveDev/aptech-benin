@@ -38,3 +38,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+@layer utilities {
+  .hero-bg-contact {
+    background-image: url("/top-view-using-laptop-overlay.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-bg-admissions {
+    background-image: url("/group-photo-laptop.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
