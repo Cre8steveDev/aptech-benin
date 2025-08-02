@@ -196,10 +196,10 @@ This is an automated message from the Aptech Computer Education [Benin] website.
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; }
         .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 30px 20px; text-align: center; }
+        .header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 10px; text-align: center; }
         .header h1 { margin: 0; font-size: 24px; font-weight: bold; }
         .header p { margin: 10px 0 0 0; opacity: 0.9; }
-        .content { padding: 30px 20px; }
+        .content { padding: 10px 10px; }
         .section { margin-bottom: 25px; }
         .section h2 { color: #1d4ed8; font-size: 18px; margin-bottom: 15px; border-bottom: 2px solid #e5e7eb; padding-bottom: 5px; }
         .info-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin-bottom: 10px; }
@@ -375,9 +375,9 @@ Aptech Computer Education - Benin City
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; }
         .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 30px 20px; text-align: center; }
+        .header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 10px; text-align: center; }
         .header h1 { margin: 0; font-size: 24px; font-weight: bold; }
-        .content { padding: 30px 20px; }
+        .content { padding: 10px 10px; }
         .success-badge { background-color: #dcfce7; color: #166534; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 25px; border: 1px solid #bbf7d0; }
         .section { margin-bottom: 25px; }
         .section h2 { color: #1d4ed8; font-size: 18px; margin-bottom: 15px; border-bottom: 2px solid #e5e7eb; padding-bottom: 5px; }

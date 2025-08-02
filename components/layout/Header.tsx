@@ -86,7 +86,12 @@ const Header = () => {
 
             {/* Icons buttons */}
             <section className="flex gap-3">
-              <Link href={"#"} target="_blank">
+              <Link
+                href={
+                  "https://www.facebook.com/people/Aptech-Benin/61560921099200"
+                }
+                target="_blank"
+              >
                 <Facebook
                   size={28}
                   variant="Bold"

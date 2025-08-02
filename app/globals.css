@@ -53,4 +53,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  .hero-bg-about {
+    background-image: url("/aptech-benin-banner.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }

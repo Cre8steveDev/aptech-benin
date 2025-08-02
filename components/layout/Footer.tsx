@@ -34,7 +34,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/people/Aptech-Benin/61560921099200"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
                 aria-label="Facebook"
               >

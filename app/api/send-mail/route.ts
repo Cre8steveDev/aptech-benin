@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
             <div style="width: 50px; height: 3px; background-color: #3b82f6; margin: 10px auto;"></div>
           </div>
           
-          <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+          <div style="background-color: #f3f4f6; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
             <h2 style="color: #374151; margin-top: 0;">Contact Details</h2>
             <p style="margin: 8px 0;"><strong>Name:</strong> ${firstName} ${lastName}</p>
             <p style="margin: 8px 0;"><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
