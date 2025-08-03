@@ -7,6 +7,7 @@ import {
   CardFooter,
 } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import UKBanner from "@/components/UKBanner";
 
 export const metadata: Metadata = {
   title: "Courses",
@@ -123,10 +124,10 @@ export default function CoursesPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-800 dark:to-gray-900 text-white py-20">
+      <section className="bg-gray-900 hero-bg-about py-20 bg-blend-overlay">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Our Professional Courses
+            Professional Courses
           </h1>
           <p className="text-xl md:text-2xl text-blue-100">
             Choose from our comprehensive range of industry-relevant courses
@@ -171,11 +172,11 @@ export default function CoursesPage() {
                       </div>
                     </div>
 
-                    <div className="text-center">
+                    {/* <div className="text-center">
                       <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">
                         {course.price}
                       </span>
-                    </div>
+                    </div> */}
 
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
@@ -208,10 +209,13 @@ export default function CoursesPage() {
 
                 <CardFooter>
                   <div className="flex space-x-2 w-full">
-                    <Button className="flex-1">
+                    <Button className="flex-1 bg-red-800 hover:bg-red-600">
                       <Link href={`/courses/${course.slug}`}>Learn More</Link>
                     </Button>
-                    <Button variant="outline">
+                    <Button
+                      variant="outline"
+                      className="border-yellow-500 text-gray-700 hover:bg-yellow-500 hover:border-transparent"
+                    >
                       <Link href="/admissions">Enroll</Link>
                     </Button>
                   </div>
@@ -223,32 +227,7 @@ export default function CoursesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 dark:bg-blue-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Learning Journey?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Join thousands of successful graduates who launched their careers
-            with Aptech.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900"
-            >
-              <Link href="/admissions">Apply Now</Link>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-white text-white hover:bg-white hover:text-blue-700"
-            >
-              <Link href="/contact">Contact Us</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <UKBanner />
     </div>
   );
 }

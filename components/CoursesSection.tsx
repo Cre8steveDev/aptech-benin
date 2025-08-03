@@ -203,23 +203,6 @@ const courses = [
 
   {
     id: 4,
-    title: "Digital Marketing",
-    description:
-      "Learn digital marketing strategies, social media marketing, SEO, Google Ads, and content marketing to grow businesses online.",
-    duration: "4 months",
-    level: "Beginner to Intermediate",
-
-    features: [
-      "SEO & SEM",
-      "Social Media Marketing",
-      "Content Strategy",
-      "Analytics & ROI",
-    ],
-    icon: <ShoppingCart size="24" color="#ffffff" />,
-    type: "Skill Builder",
-  },
-  {
-    id: 5,
     title: "Ethical Hacking",
     description:
       "Understand network infrastructure, security protocols, and cybersecurity best practices. Prepare for industry certifications.",
@@ -235,6 +218,25 @@ const courses = [
     icon: <WifiSquare size="24" color="#ffffff" />,
     type: "Smart Professional",
   },
+
+  {
+    id: 5,
+    title: "Digital Marketing",
+    description:
+      "Learn digital marketing strategies, social media marketing, SEO, Google Ads, and content marketing to grow businesses online.",
+    duration: "4 months",
+    level: "Beginner to Intermediate",
+
+    features: [
+      "SEO & SEM",
+      "Social Media Marketing",
+      "Content Strategy",
+      "Analytics & ROI",
+    ],
+    icon: <ShoppingCart size="24" color="#ffffff" />,
+    type: "Skill Builder",
+  },
+
   {
     id: 6,
     title: "Graphics Design",
