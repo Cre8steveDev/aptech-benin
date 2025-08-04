@@ -15,121 +15,17 @@ export const metadata: Metadata = {
     "Explore our comprehensive range of professional technology courses at Aptech Computer Education. From web development to data science, find the perfect course to launch your tech career.",
 };
 
-const courses = [
-  {
-    id: 1,
-    title: "Web Development",
-    description:
-      "Learn modern web development with HTML, CSS, JavaScript, React, and Node.js. Build responsive, dynamic websites and web applications.",
-    duration: "6 months",
-    level: "Beginner to Advanced",
-    price: "₦150,000",
-    modules: [
-      "HTML5 & CSS3",
-      "JavaScript & React",
-      "Node.js & Express",
-      "Database Management",
-      "Version Control",
-    ],
-    slug: "web-development",
-  },
-  {
-    id: 2,
-    title: "Software Development",
-    description:
-      "Master programming fundamentals and advanced concepts with Python, Java, and C++. Build desktop and mobile applications.",
-    duration: "8 months",
-    level: "Beginner to Expert",
-    price: "₦200,000",
-    modules: [
-      "Python Programming",
-      "Java Development",
-      "Mobile App Development",
-      "Software Architecture",
-      "Testing & Deployment",
-    ],
-    slug: "software-development",
-  },
-  {
-    id: 3,
-    title: "Digital Marketing",
-    description:
-      "Learn digital marketing strategies, social media marketing, SEO, Google Ads, and content marketing to grow businesses online.",
-    duration: "4 months",
-    level: "Beginner to Intermediate",
-    price: "₦120,000",
-    modules: [
-      "SEO & SEM",
-      "Social Media Marketing",
-      "Content Strategy",
-      "Email Marketing",
-      "Analytics & ROI",
-    ],
-    slug: "digital-marketing",
-  },
-  {
-    id: 4,
-    title: "Networking & Cybersecurity",
-    description:
-      "Understand network infrastructure, security protocols, and cybersecurity best practices. Prepare for industry certifications.",
-    duration: "6 months",
-    level: "Intermediate to Advanced",
-    price: "₦180,000",
-    modules: [
-      "Network Administration",
-      "Cybersecurity",
-      "Cloud Computing",
-      "Ethical Hacking",
-      "Industry Certifications",
-    ],
-    slug: "networking-cybersecurity",
-  },
-  {
-    id: 5,
-    title: "Graphics Design",
-    description:
-      "Create stunning visual designs using Adobe Creative Suite. Learn typography, branding, and user interface design principles.",
-    duration: "4 months",
-    level: "Beginner to Intermediate",
-    price: "₦100,000",
-    modules: [
-      "Adobe Photoshop",
-      "Illustrator & InDesign",
-      "UI/UX Design",
-      "Brand Identity",
-      "Print & Digital Design",
-    ],
-    slug: "graphics-design",
-  },
-  {
-    id: 6,
-    title: "Data Science & Analytics",
-    description:
-      "Analyze data, create insights, and build predictive models using Python, SQL, and machine learning techniques.",
-    duration: "7 months",
-    level: "Intermediate to Advanced",
-    price: "₦220,000",
-    modules: [
-      "Python for Data Science",
-      "SQL & Databases",
-      "Machine Learning",
-      "Data Visualization",
-      "Statistical Analysis",
-    ],
-    slug: "data-science-analytics",
-  },
-];
-
+// PAGE COMPONENT
 export default function CoursesPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="bg-gray-900 hero-bg-about py-20 bg-blend-overlay">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-yellow-500">
             Professional Courses
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100">
+          <p className="text-sm sm:text-xl text-blue-100">
             Choose from our comprehensive range of industry-relevant courses
             designed to prepare you for successful careers in technology.
           </p>
@@ -139,14 +35,22 @@ export default function CoursesPage() {
       {/* Courses Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 cursor-default">
             {courses.map((course) => (
-              <Card key={course.id} hover className="h-full flex flex-col">
+              <Card
+                key={course.id}
+                hover
+                className="h-full flex flex-col relative"
+              >
+                {/* Course Category */}
+                <div className="px-2 py-1 bg-yellow-500 w-fit text-xs text-black">
+                  <p>{course.category}</p>
+                </div>
                 <CardHeader>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  <h2 className="text-lg md:text-xl xxl:text-2xl font-bold text-gray-900 dark:text-white mb-4">
                     {course.title}
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-xs sm:text-sm">
                     {course.description}
                   </p>
                 </CardHeader>
@@ -155,28 +59,22 @@ export default function CoursesPage() {
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <span className="text-gray-500 dark:text-gray-400 block">
+                        <span className="text-gray-500 dark:text-gray-400 block text-xs">
                           Duration:
                         </span>
-                        <span className="font-medium text-gray-900 dark:text-white">
+                        <span className="font-medium text-gray-900 dark:text-white text-sm">
                           {course.duration}
                         </span>
                       </div>
                       <div>
-                        <span className="text-gray-500 dark:text-gray-400 block">
-                          Level:
+                        <span className="text-gray-500 dark:text-gray-400 block text-xs">
+                          Job Profile:
                         </span>
-                        <span className="font-medium text-gray-900 dark:text-white">
-                          {course.level}
+                        <span className="font-medium text-gray-900 dark:text-white text-sm">
+                          {course.profile}
                         </span>
                       </div>
                     </div>
-
-                    {/* <div className="text-center">
-                      <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-                        {course.price}
-                      </span>
-                    </div> */}
 
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
@@ -186,7 +84,7 @@ export default function CoursesPage() {
                         {course.modules.map((module, index) => (
                           <li
                             key={index}
-                            className="flex items-center text-sm text-gray-600 dark:text-gray-300"
+                            className="flex items-center text-xs text-gray-600 dark:text-gray-300"
                           >
                             <svg
                               className="h-4 w-4 text-green-500 mr-2 flex-shrink-0"
@@ -209,20 +107,48 @@ export default function CoursesPage() {
 
                 <CardFooter>
                   <div className="flex space-x-2 w-full">
-                    <Button className="flex-1 bg-red-800 hover:bg-red-600">
-                      <Link href={`/courses/${course.slug}`}>Learn More</Link>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="border-yellow-500 text-gray-700 hover:bg-yellow-500 hover:border-transparent"
-                    >
-                      <Link href="/admissions">Enroll</Link>
-                    </Button>
+                    <Link href="/admissions" className="flex-1">
+                      <Button className=" bg-red-800 hover:bg-red-600 dark:bg-yellow-500 hover:dark:bg-yellow-700 text-sm dark:text-black w-full">
+                        {/* <Link href={`/courses/${course.slug}`}>Get Advice</Link> */}
+                        Enroll Now
+                      </Button>
+                    </Link>
+                    <Link href="https://wa.link/f7ml81">
+                      <Button
+                        variant="outline"
+                        className="border-yellow-500 text-gray-700 hover:bg-yellow-500 hover:border-transparent dark:text-white text-sm"
+                      >
+                        Get Expert Advice
+                      </Button>
+                    </Link>
                   </div>
                 </CardFooter>
               </Card>
             ))}
           </div>
+        </div>
+
+        {/* Download Complete Course Brochure */}
+        <div className="text-center text-black mt-8">
+          <h2>Download Our Complete Course Brochure</h2>
+          {/* Smart Pro and STC */}
+          <Link
+            href={
+              "/brochure/ACE Smart_Professional_and_Skill_Builder_Courses.pdf"
+            }
+            download={"ACE Smart_Professional_and_Skill_Builder_Courses.pdf"}
+            className="hover:underline text-red-900 mr-2"
+          >
+            Smart Professional and Short Term Courses
+          </Link>
+          Or {/* ACCP Course - ADSE */}
+          <Link
+            href={"#"}
+            download={"#"}
+            className="hover:underline text-red-900"
+          >
+            ACCP (Advanced Diploma in Software Engineering)
+          </Link>
         </div>
       </section>
 
@@ -231,3 +157,137 @@ export default function CoursesPage() {
     </div>
   );
 }
+
+// COURSE DATA FOR COMPONENTS
+const courses = [
+  {
+    id: 1,
+    title: "Advance Diploma in Software Engineering",
+    description:
+      "ADSE is a two year Diploma programme designed to make you an industry professional in sofrware engineering field. ADSE gives you the professional edge to start your career in the global industry. You get to study abroad with our prestigious educational alliances.",
+    duration: "2 Years",
+    profile: "Software Engineer",
+    category: "Career Course",
+    modules: [
+      "Web Development & Version Control",
+      "Java Development",
+      "Mobile App Development",
+      "Software Architecture",
+      "Python & Database Management",
+      "Testing & Deployment",
+    ],
+    slug: "/courses/software-development",
+  },
+
+  {
+    id: 2,
+    title: "Aptech Computer Network Specialist",
+    description:
+      "ACNS is the leading Networking Career Course from Aptech. It is an hardware networking system administrator and database course. It has all the current IT technologies and offers the fastest and most economical pathway to a degree from a UK Institution.",
+    duration: "?? months",
+    profile: "Network Specialist",
+    category: "Career Course",
+    modules: [
+      "Network Administration",
+      "Cybersecurity",
+      "Cloud Computing",
+      "Ethical Hacking",
+      "Industry Certifications",
+    ],
+    slug: "/courses/aptech-computer-network-specialist",
+  },
+
+  {
+    id: 3,
+    title: "Certified Ethical Hacker",
+    description:
+      "Be equipped with the skills to identify security weaknesses, respond to malicious activity with experiential knowledge, and secure systems with the best methods. Learn thread modelling and how to perform wireless attacks using python programs and other hacking tools.",
+    duration: "?? months",
+    profile: "Ethical Hacker",
+    category: "Smart Professional",
+    modules: [
+      "Fundamentals of JavaScript",
+      "Security Programming with Python",
+      "Security Architecture & Hacking",
+      "Windows and Linux Hacking",
+      "Kali Linux and Virtual Machines",
+      "Ethical Hacking",
+    ],
+    slug: "/courses/certified-ethical-hacking",
+  },
+
+  {
+    id: 4,
+    title: "Data Science & Analytics",
+    description:
+      "Data science is a multidisicplinary blend of data inference, algorithm development and technology in order to solve analytically complex problems. It is about using data in creative ways to generate business value, aid decisions and predictions.",
+    duration: "?? months",
+    profile: "Data Scientist",
+    category: "ACN Pro",
+    modules: [
+      "Data Analysis with MS Excel",
+      "Python Programming",
+      "Large Data Management",
+      "R Programming",
+      "Visual Analytics with Tableau",
+      "Foundation of Big Data Systems",
+    ],
+    slug: "/courses/data-science-analytics",
+  },
+
+  {
+    id: 5,
+    title: "Full Stack MERN Development",
+    description:
+      "Learn how to build real world full stack web applications using the MERN Stack (MongoDB, ExpressJS, ReactJS and NodeJS). Master the techniques for building both client-side and server-side applications. ",
+    duration: "?? months",
+    profile: "Full Stack Developer",
+    category: "Smart Professional",
+    modules: [
+      "Building Modern Websites",
+      "Frontend Development with ReactJS",
+      "Managing Data with MongoDB",
+      "Server-Side Development with ExpressJS",
+      "UI/UX for Web Design",
+      "Version Control (Git & GitHub)",
+    ],
+    slug: "/courses/mern-stack-development",
+  },
+
+  {
+    id: 6,
+    title: "Responsive Web Development",
+    description:
+      "Use HTML5, CSS & JavaScript to develop interactive websites and apps. Learn frontend web development with ReactJS and the basic principles of effective and responsive web user interface and design (UI/UX)",
+    duration: "4 months",
+    profile: "Frontend Developer",
+    category: "Skill Builder",
+    modules: [
+      "HTML5 & CSS3",
+      "Programming with JavaScript",
+      "Frontend Development with ReactJ",
+      "Principles of UI/UX with Figma",
+      "Version Control",
+    ],
+    slug: "/courses/responsive-web-development",
+  },
+
+  {
+    id: 7,
+    title: "Python Web App Development",
+    description:
+      "Learn how to build real world full stack web applications using the versatile Python programming language.  Master the techniques for building both client-side and server-side applications using Flask and Django. Be equipped with the skills to build complete digital products.",
+    duration: "?? months",
+    profile: "Python Web Developer",
+    category: "Smart Professional",
+    modules: [
+      "Building Modern Websites",
+      "Frontend Development with ReactJS",
+      "Working with MySQL",
+      "Server-Side Development (Flask/Django)",
+      "UI/UX for Web Design",
+      "Version Control (Git & GitHub)",
+    ],
+    slug: "/courses/python-web-development",
+  },
+];
