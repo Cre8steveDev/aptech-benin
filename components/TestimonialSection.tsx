@@ -1,70 +1,40 @@
 "use client";
 
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import SimpleTestimonialCarousel from "./ui/SimpleTestimonialCarousel";
 
 // Testimonial Page
 
 const TestimonialSection = () => {
   return (
-    <section className="dark:bg-gray-900 md:px-20 py-8 text-gray-900 dark:text-slate-50">
+    <section className="dark:bg-gray-900 md:px-20 py-12 text-gray-900 dark:text-slate-50">
       {/* Section Header */}
-      <h2 className="text-3xl text-center px-8 md:px-2">
-        Testimonials from APTECH Students
-      </h2>
+      <div className="text-center mb-12">
+        {/* <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> */}
+        <h2 className="text-4xl font-bold mb-4">What Our Students Say</h2>
+        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Hear from our successful graduates who have transformed their careers
+          through our comprehensive IT training programs.
+        </p>
+      </div>
 
-      {/* Carousel Items */}
-      <Carousel
-        swipeable={true}
-        draggable={true}
-        showDots={true}
-        responsive={responsive}
-        ssr={false}
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={1000}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={3000}
-        containerClass="carousel-container p-[50px] max-w-[1208px] mx-auto"
-        removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
-        deviceType={undefined}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {TESTIMONIALS.map((testimonial) => (
-          <section
-            key={testimonial.id}
-            className="bg-slate-50 dark:bg-slate-800 mx-2 p-4 border-t-4 border-t-yellow-500 h-full hover:scale-95 transition-all duration-300 cursor-default"
-          >
-            {/* Top Section of Testimonial */}
-            <div className="flex items-center gap-2 mb-4">
-              <img
-                src={testimonial.image}
-                alt="Student Testimonial Image"
-                width={60}
-                height={60}
-                className="rounded-full w-[60px] h-[60px] object-center object-cover"
-              />
-              <section>
-                <h3 className="font-bold text-sm">{testimonial.name}</h3>
-                <p className="text-xs">{testimonial.course}</p>
-              </section>
-            </div>
-
-            {/* Main Testimonial Comment */}
-            <p className="md:text-md text-sm">{testimonial.comment}</p>
-          </section>
-        ))}
-      </Carousel>
+      {/* Simple Carousel */}
+      <div className="mb-12">
+        <SimpleTestimonialCarousel
+          testimonials={TESTIMONIALS}
+          autoPlay={true}
+          autoPlaySpeed={6000}
+        />
+      </div>
 
       {/* Collaboration Banner */}
-      <div className="flex flex-col justify-center items-center px-4 md:px-0">
-        <h3 className="z-10 mt-4">In Collaboration with</h3>
+      <div className="flex flex-col justify-center items-center px-4 md:px-0 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8">
+        <h3 className="text-2xl font-semibold mb-6 text-center">
+          In Collaboration with
+        </h3>
         <img
           src="/affiliations-aptech-benin-global-brand.webp"
           alt="Aptech is proudly affiliated with international schools, guaranteeing pathways for our students who will like to pursue international degrees."
-          className="rounded-lg"
+          className="rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-full h-auto"
         />
       </div>
     </section>
@@ -72,24 +42,6 @@ const TestimonialSection = () => {
 };
 
 export default TestimonialSection;
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-    slidesToSlide: 3, // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 2, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-};
 
 const TESTIMONIALS = [
   {

@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 
 // Animate on Scroll CSS
 import "aos/dist/aos.css";
+import { Whatsapp } from "iconsax-reactjs";
+import Link from "next/link";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
@@ -110,9 +112,18 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${poppins.className} antialiased min-h-screen flex flex-col !bg-white dark:!bg-gray-900`}
+        className={`${poppins.className} antialiased min-h-screen flex flex-col !bg-white dark:!bg-gray-900 relative`}
       >
         <Header />
+        {/* Whatsapp Floating */}
+
+        <Link
+          href={"https://wa.link/p1ko8b"}
+          className="h-[40px] w-[40px] md:h-[60px] md:w-[60px] flex items-center justify-center bg-green-500 fixed bottom-7 right-3.5 rounded-full hover:scale-90 transition-transform"
+        >
+          <Whatsapp size={26} variant="Bold" color="white" />
+        </Link>
+
         <main className="flex-1 bg-white dark:bg-gray-900">{children}</main>
         <Footer />
       </body>

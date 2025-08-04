@@ -107,7 +107,10 @@ export default function CoursesPage() {
 
                 <CardFooter>
                   <div className="flex space-x-2 w-full">
-                    <Link href="/admissions" className="flex-1">
+                    <Link
+                      href={`/admissions?choice=${course.slug}`}
+                      className="flex-1"
+                    >
                       <Button className=" bg-red-800 hover:bg-red-600 dark:bg-yellow-500 hover:dark:bg-yellow-700 text-sm dark:text-black w-full">
                         {/* <Link href={`/courses/${course.slug}`}>Get Advice</Link> */}
                         Enroll Now
@@ -176,7 +179,7 @@ const courses = [
       "Python & Database Management",
       "Testing & Deployment",
     ],
-    slug: "/courses/software-development",
+    slug: "software-development",
   },
 
   {
@@ -190,11 +193,11 @@ const courses = [
     modules: [
       "Network Administration",
       "Cybersecurity",
-      "Cloud Computing",
+      "Cloud Computing (Azure)",
       "Ethical Hacking",
       "Industry Certifications",
     ],
-    slug: "/courses/aptech-computer-network-specialist",
+    slug: "aptech-computer-network-specialist",
   },
 
   {
@@ -213,7 +216,7 @@ const courses = [
       "Kali Linux and Virtual Machines",
       "Ethical Hacking",
     ],
-    slug: "/courses/certified-ethical-hacking",
+    slug: "certified-ethical-hacking",
   },
 
   {
@@ -232,7 +235,7 @@ const courses = [
       "Visual Analytics with Tableau",
       "Foundation of Big Data Systems",
     ],
-    slug: "/courses/data-science-analytics",
+    slug: "data-science-analytics",
   },
 
   {
@@ -251,7 +254,7 @@ const courses = [
       "UI/UX for Web Design",
       "Version Control (Git & GitHub)",
     ],
-    slug: "/courses/mern-stack-development",
+    slug: "mern-stack-development",
   },
 
   {
@@ -269,7 +272,7 @@ const courses = [
       "Principles of UI/UX with Figma",
       "Version Control",
     ],
-    slug: "/courses/responsive-web-development",
+    slug: "responsive-web-development",
   },
 
   {
@@ -278,7 +281,7 @@ const courses = [
     description:
       "Learn how to build real world full stack web applications using the versatile Python programming language.  Master the techniques for building both client-side and server-side applications using Flask and Django. Be equipped with the skills to build complete digital products.",
     duration: "?? months",
-    profile: "Python Web Developer",
+    profile: "Python Developer",
     category: "Smart Professional",
     modules: [
       "Building Modern Websites",
@@ -288,6 +291,6 @@ const courses = [
       "UI/UX for Web Design",
       "Version Control (Git & GitHub)",
     ],
-    slug: "/courses/python-web-development",
+    slug: "python-web-development",
   },
 ];

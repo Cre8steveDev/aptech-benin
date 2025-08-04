@@ -1,0 +1,95 @@
+/* Custom Testimonial Carousel Styles */
+
+.testimonial-carousel {
+  scroll-behavior: smooth;
+}
+
+.testimonial-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .testimonial-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth carousel transitions with infinite loop support */
+.carousel-container .flex {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Ensure smooth looping by temporarily disabling transition */
+.carousel-container .flex.no-transition {
+  transition: none;
+}
+
+/* Reduced padding for rating section */
+.testimonial-card .rating-section {
+  margin-top: 0.75rem !important;
+  padding-top: 0.75rem !important;
+}
+
+/* Smooth fade animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-section-enter {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Custom scrollbar for carousel */
+.carousel-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  @apply bg-gray-200 dark:bg-gray-700 rounded-full;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  @apply bg-yellow-500 rounded-full;
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-600;
+}
+
+/* Accessibility improvements */
+.carousel-button:focus-visible {
+  outline: 2px solid #eab308;
+  outline-offset: 2px;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+  .testimonial-card {
+    touch-action: pan-y;
+  }
+}
+
+/* Print styles */
+@media print {
+  .carousel-button,
+  .carousel-dots {
+    display: none !important;
+  }
+
+  .testimonial-card {
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+}
