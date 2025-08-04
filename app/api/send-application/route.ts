@@ -144,7 +144,7 @@ export async function POST(req: NextRequest) {
     // Configure your SMTP transporter
     const transporter = nodemailer.createTransport({
       service: "Gmail",
-      secure: process.env.ENVIRONMENT == "development" ? false : true,
+      secure: false,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
