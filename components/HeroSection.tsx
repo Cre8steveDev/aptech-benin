@@ -53,8 +53,8 @@ const HeroSection = () => {
             <div className="relative">
               <div className="z-10 relative">
                 <img
-                  src="/graduate-hero-img-new.png"
-                  alt="Aptech Computer Education"
+                  src="/graduate-hero-img-new.webp"
+                  alt="Aptech Computer Education hero image"
                   width={600}
                   height={400}
                   className="mx-auto w-full max-w-md h-full -mb-20 sm:mb-0 lg:translate-y-6"
