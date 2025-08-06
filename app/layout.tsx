@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/aptech_banner_og.png",
+        url: "https://aptechbenin2.vercel.app/aptech_banner_og.png",
         width: 1200,
         height: 630,
         alt: "Aptech Computer Education - Benin City",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Aptech Computer Education - Benin City, Edo State",
     description:
       "Leading computer education institute in Benin City, Edo State. Build your tech career with professional IT courses.",
-    images: ["/aptech_banner_og.png"],
+    images: ["https://aptechbenin2.vercel.app/aptech_banner_og.png"],
   },
   robots: {
     index: true,
