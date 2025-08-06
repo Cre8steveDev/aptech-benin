@@ -49,12 +49,12 @@ export const metadata: Metadata = {
     description:
       "Leading computer education institute in Benin City, Edo State. Offering professional courses in software development, web design, networking, digital marketing, and IT certifications.",
     url: "/",
-    siteName: "Aptech Computer Education",
+    siteName: "Aptech Computer Education - Benin City",
     locale: "en_NG",
     type: "website",
     images: [
       {
-        url: "/aptech_logo_big.png",
+        url: "/aptech_banner_og.png",
         width: 1200,
         height: 630,
         alt: "Aptech Computer Education - Benin City",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Aptech Computer Education - Benin City, Edo State",
     description:
       "Leading computer education institute in Benin City, Edo State. Build your tech career with professional IT courses.",
-    images: ["/aptech_logo_big.png"],
+    images: ["/aptech_banner_og.png"],
   },
   robots: {
     index: true,
@@ -79,9 +79,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+  // verification: {
+  //   google: "your-google-verification-code",
+  // },
 };
 
 export default function RootLayout({
