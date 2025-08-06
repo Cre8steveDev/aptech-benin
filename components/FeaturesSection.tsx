@@ -15,6 +15,7 @@ const features = [
     description:
       "Our courses are designed with input from industry professionals to ensure you learn the most current and in-demand skills.",
   },
+
   {
     icon: <People size={28} color="#155dfc" variant="Outline" />,
     delay: "50",
@@ -22,6 +23,7 @@ const features = [
     description:
       "Learn from experienced professionals with years of industry experience and a passion for teaching.",
   },
+
   {
     icon: <CloudLightning size={28} color="#155dfc" variant="Outline" />,
     delay: "100",
@@ -29,6 +31,7 @@ const features = [
     description:
       "Get practical experience through projects, labs, and real-world applications that prepare you for the workplace.",
   },
+
   {
     icon: <TickCircle size={28} color="#155dfc" variant="Outline" />,
     delay: "150",
@@ -43,7 +46,7 @@ const FeaturesSection = () => {
   const statsData = [
     { value: 7, label: "Graduates Globally", suffix: "m+" },
     { value: 15, label: "Professional Courses", suffix: "+" },
-    { value: 35, label: "Yearse of Expertise", suffix: "+" },
+    { value: 35, label: "Years of Expertise", suffix: "+" },
     { value: 40, label: "Countries", suffix: "+" },
   ];
 

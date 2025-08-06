@@ -270,7 +270,7 @@ const AdmissionForm = () => {
         )}
 
         <form
-          className="space-y-4 md:space-y-6 px-4 text-gray-900"
+          className="space-y-4 md:space-y-6 md:px-4 text-gray-900"
           onSubmit={handleSubmit}
           id="form"
         >
@@ -371,54 +371,15 @@ const AdmissionForm = () => {
               }
               disabled={loading}
             >
-              <option value="">{formData.courseChoice}</option>
+              {/* <option value="">{formData.courseChoice}</option> */}
 
-              <option value="advanced_diploma_in_software_engineering">
-                Advanced Diploma in Software Engineering
-              </option>
-
-              <option value="aptech_computer_network_specialist">
-                Aptech Computer Network Specialist
-              </option>
-
-              <option value="certified_ethical_hackingethical_hacking">
-                Certified Ethical Hacking
-              </option>
-
-              <option value="data_science_and_analytics">
-                Data Science and Analytics
-              </option>
-
-              <option value="web_application_with_python_smartpro">
-                Web Application with Python (Smart Pro)
-              </option>
-
-              <option value="ethical_hacking_smartpro">
-                Ethical Hacking (Smart Pro)
-              </option>
-
-              <option value="responsive_web_development_stc">
-                Responsive Web Development (STC)
-              </option>
-
-              <option value="html5_responsive_web_design_stc">
-                HTML5 Responsive Web Design (STC)
-              </option>
-
-              <option value="advance_excel_2019_stc">
-                Advanced Microsoft Excel (STC)
-              </option>
-
-              <option value="java_i_and_ii">Java I & II (STC)</option>
-
-              <option value="digital_marketing_stc">
-                Digital Marketing (STC)
-              </option>
-
-              <option value="graphics_design_stc">Graphic Design (STC)</option>
-
-              <option value="need_help_to_decide">Need Help to Decide</option>
+              {/* List Courses as Options in Select */}
+              {Object.keys(courseChoice).map((course) => (
+                <option value={course}>{courseChoice[course]}</option>
+              ))}
             </select>
+
+            {/*  */}
             <p className="text-xs text-gray-900 dark:text-slate-100 mt-2">
               STC - Short Term Courses
             </p>

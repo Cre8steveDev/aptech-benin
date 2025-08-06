@@ -133,16 +133,18 @@ export default function CoursesPage() {
 
         {/* Download Complete Course Brochure */}
         <div className="text-center text-black mt-8">
-          <h2>Download Our Complete Course Brochure</h2>
+          <h3 className="text-xs sm:text-lg">
+            Download Our Complete Course Brochure
+          </h3>
           {/* Smart Pro and STC */}
           <Link
             href={
               "/brochure/ACE Smart_Professional_and_Skill_Builder_Courses.pdf"
             }
             download={"ACE Smart_Professional_and_Skill_Builder_Courses.pdf"}
-            className="hover:underline text-red-900 mr-2"
+            className="hover:underline text-red-900 mr-2 "
           >
-            Smart Professional and Short Term Courses
+            <p>Smart Professional and Short Term Courses</p>
           </Link>
           Or {/* ACCP Course - ADSE */}
           <Link
@@ -150,7 +152,7 @@ export default function CoursesPage() {
             download={"#"}
             className="hover:underline text-red-900"
           >
-            ACCP (Advanced Diploma in Software Engineering)
+            <p>ACCP (Advanced Diploma in Software Engineering)</p>
           </Link>
         </div>
       </section>

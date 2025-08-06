@@ -47,7 +47,7 @@ const CoursesSection = () => {
             <Card
               key={course.id}
               hover
-              className="flex flex-col h-full"
+              className="flex flex-col h-full !transition-all duration-300 cursor-default"
               data_attrib={"fade-up"}
             >
               <CardHeader>
@@ -95,27 +95,29 @@ const CoursesSection = () => {
               <CardFooter>
                 <div className="flex space-x-2 w-full">
                   <Link
-                    href={`/courses/${course.title
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
-                    className="flex-1"
+                    // href={`/courses/${course.title
+                    //   .toLowerCase()
+                    //   .replace(/\s+/g, "-")}`}
+                    href="https://wa.link/f7ml81"
+                    className=""
                   >
                     <Button
-                      className="bg-red-900 hover:bg-yellow-500 w-full hover:text-black"
+                      className="bg-red-900 hover:bg-yellow-500 w-full hover:text-black h-full"
                       size="sm"
                     >
-                      Learn More
+                      Get Expert Advice
                     </Button>
                   </Link>
                   <Link
                     href={`/admissions?course=${course.title
                       .toLowerCase()
                       .replace(/\s+/g, "-")}`}
+                    className="flex-1"
                   >
                     <Button
                       variant="outline"
                       size="sm"
-                      className="hover:bg-yellow-500 border-yellow-500 hover:border-transparent !text-black hover:text-white dark:!text-white"
+                      className="hover:bg-yellow-500 border-yellow-500 hover:border-transparent !text-black hover:text-white dark:!text-white w-full"
                     >
                       Enroll Now
                     </Button>
