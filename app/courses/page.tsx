@@ -189,7 +189,7 @@ const courses = [
     title: "Aptech Computer Network Specialist",
     description:
       "ACNS is the leading Networking Career Course from Aptech. It is an hardware networking system administrator and database course. It has all the current IT technologies and offers the fastest and most economical pathway to a degree from a UK Institution.",
-    duration: "?? months",
+    duration: "2 Years",
     profile: "Network Specialist",
     category: "Career Course",
     modules: [
@@ -226,7 +226,7 @@ const courses = [
     title: "Data Science & Analytics",
     description:
       "Data science is a multidisicplinary blend of data inference, algorithm development and technology in order to solve analytically complex problems. It is about using data in creative ways to generate business value, aid decisions and predictions.",
-    duration: "?? months",
+    duration: "10 months",
     profile: "Data Scientist",
     category: "ACN Pro",
     modules: [
@@ -245,7 +245,7 @@ const courses = [
     title: "Full Stack MERN Development",
     description:
       "Learn how to build real world full stack web applications using the MERN Stack (MongoDB, ExpressJS, ReactJS and NodeJS). Master the techniques for building both client-side and server-side applications. ",
-    duration: "?? months",
+    duration: "6 months",
     profile: "Full Stack Developer",
     category: "Smart Professional",
     modules: [
@@ -282,7 +282,7 @@ const courses = [
     title: "Python Web App Development",
     description:
       "Learn how to build real world full stack web applications using the versatile Python programming language.  Master the techniques for building both client-side and server-side applications using Flask and Django. Be equipped with the skills to build complete digital products.",
-    duration: "?? months",
+    duration: "6 months",
     profile: "Python Developer",
     category: "Smart Professional",
     modules: [
