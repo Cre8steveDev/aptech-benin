@@ -176,7 +176,7 @@ export default function ContactPage() {
                         </h3>
                         <div className="space-y-1 text-gray-600 dark:text-gray-300">
                           <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                          <p>Saturday: 9:00 AM - 4:00 PM</p>
+                          <p>Saturday: 10:00 AM - 2:00 PM</p>
                           <p>Sunday: Closed</p>
                         </div>
                       </div>

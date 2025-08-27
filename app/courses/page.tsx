@@ -148,8 +148,8 @@ export default function CoursesPage() {
           </Link>
           Or {/* ACCP Course - ADSE */}
           <Link
-            href={"#"}
-            download={"#"}
+            href={"/public/brochure/ACCP_Nigeria_Brochure.pdf"}
+            download={"ACCP_Nigeria_Brochure.pdf"}
             className="hover:underline text-red-900"
           >
             <p>ACCP (Advanced Diploma in Software Engineering)</p>
