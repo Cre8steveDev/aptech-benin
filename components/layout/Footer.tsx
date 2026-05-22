@@ -181,12 +181,12 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Call color="white" size={24} />
                 <p className="text-gray-300 text-sm">
-                  <a href="tel:+234808621315" target="_blank">
-                    +234-808-621-3157
-                  </a>
-                  <br />
                   <a href="tel:+2347077388482" target="_blank">
                     +234-707-738-8482
+                  </a>
+                  <br />
+                  <a href="tel:+234808621315" target="_blank">
+                    +234-808-621-3157
                   </a>
                 </p>
               </div>
